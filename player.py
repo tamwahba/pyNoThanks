@@ -4,17 +4,16 @@ FIRST = 0
 class Player:
     """Player class for handling the player hand"""
     def __init__(self, playerName):
-<<<<<<< HEAD
-        self.__name = playerName
-        self.__cardList = []
-        self.__chips = 11
+        self.__name = playerName  # str
+        self.__cardList = []  # list<int>
+        self.__chips = 11  # int
 
     # -------------------------------
     # Accessors
 
     def getCards(self):
         return self.__cardList
-    
+
     def getChips(self):
         return self.__chips
 
@@ -24,17 +23,6 @@ class Player:
     def getSortedList(self, cardList):
         self.__cardList.sort()
         return self.__cardList
-
-    # -------------------------------
-    # 'toString'
-
-    def __str__(self):
-        return list(self.__cardList)
-
-=======
-        self.__name = playerName  # str
-        self.__cardList = []  # list<int>
-        self.__chips = 11  # int
 
     # ----- Mutators ----- #
     # param card (int)
@@ -60,6 +48,11 @@ class Player:
         score -= self.__chips
         return score
 
+    # -------------------------------
+    # 'toString'
+    def __str__(self):
+        return list(self.__cardList)
+
 
 # ----- Test ----- #
 def main():
@@ -77,4 +70,3 @@ def main():
 
 main()
 # ---- End Test ----#
->>>>>>> abbb9ece20740cc98e56740e765ddc6ffb5ca395
