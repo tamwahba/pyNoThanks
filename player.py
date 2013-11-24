@@ -2,7 +2,7 @@ FIRST = 1
 
 
 class Player:
-    """docstring for  Player"""
+    '''docstring for  Player'''
     def __init__(self, playerName):
         self.__name = playerName  # str
         self.__cardList = []  # list<int>
@@ -19,7 +19,7 @@ class Player:
     def getName(self):
         return self.__playerName
 
-    def getSortedList(self, cardList):
+    def getSortedCards(self):
         self.__cardList.sort()
         return self.__cardList
 
@@ -29,8 +29,8 @@ class Player:
         self.__cardList.append(card)
 
     # param numchips (int)
-    def addChip(self, numchhips=1):
-        self.__chips += numchhips
+    def addChip(self, numchips=1):
+        self.__chips += numchips
 
     def removeChip(self):
         self.__chips -= 1
@@ -41,7 +41,7 @@ class Player:
         currentCard = self.__cardList[FIRST]
         for card in self.__cardList:
             if not (currentCard == card - 1):
-                score = card
+                score += card
             currentCard = card
 
         score -= self.__chips
@@ -50,7 +50,17 @@ class Player:
     # -------------------------------
     # 'toString'
     def __str__(self):
-        return list(self.__cardList)
+        currentCard = self.__cardList[FIRST]
+        cardSets = ""
+        for card in self.getSortedCards():
+            if not (currentCard == card - 1):
+                cardSets += "\n"
+            cardSets += str(card) + " "
+            currentCard = card
+        return cardSets
+    
+    
+        
 
 
 # ----- Test ----- #
@@ -66,6 +76,8 @@ def main():
     p1.addCard(5)
     p1.addCard(7)
     p1.addCard(9)
-
+    p1.addChip()
+    print(p1)
+    print(p1.getScore())
 main()
 # ---- End Test ----#
