@@ -1,19 +1,15 @@
+FIRST = 1
+
+
 class Player:
     """docstring for  Player"""
     def __init__(self, playerName):
-<<<<<<< HEAD
-        self.__name = playerName
-        self.__cardList = []
-        self.__chips = 11
-=======
         self.__name = playerName  # str
         self.__cardList = []  # list<int>
         self.__chips = 11  # int
->>>>>>> cac29561bfa9c6fe6e7529f33a975f8aa5d0270c
 
     # -------------------------------
     # Accessors
-
     def getCards(self):
         return self.__cardList
 
@@ -27,14 +23,6 @@ class Player:
         self.__cardList.sort()
         return self.__cardList
 
-<<<<<<< HEAD
-    # -------------------------------
-    # 'toString'
-
-    def __str__(self):
-        return list(self.__cardList)
-
-=======
     # ----- Mutators ----- #
     # param card (int)
     def addCard(self, card):
@@ -81,4 +69,3 @@ def main():
 
 main()
 # ---- End Test ----#
->>>>>>> cac29561bfa9c6fe6e7529f33a975f8aa5d0270c
