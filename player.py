@@ -19,9 +19,22 @@ class Player:
     def getName(self):
         return self.__playerName
 
-    def getSortedList(self, cardList):
+    def getSortedList(self):
         self.__cardList.sort()
         return self.__cardList
+
+    def getScore(self):
+        score = 0
+        self.__cardList.sort()
+        previousCard = self.__cardList[FIRST]
+
+        for card in self.__cardList:
+            if not (previousCard == card - 1):
+                score += card
+            previousCard = card
+
+        score -= self.__chips
+        return score
 
     # ----- Mutators ----- #
     # param card (int)
@@ -35,22 +48,12 @@ class Player:
     def removeChip(self):
         self.__chips -= 1
 
-    def getScore(self):
-        score = 0
-        self.__cardList.sort()
-        currentCard = self.__cardList[FIRST]
-        for card in self.__cardList:
-            if not (currentCard == card - 1):
-                score = card
-            currentCard = card
-
-        score -= self.__chips
-        return score
-
     # -------------------------------
     # 'toString'
     def __str__(self):
-        return list(self.__cardList)
+
+        return "%s's Cards:\n%s" % (self.__name,
+               "\n".join(str(card) for card in self.__cardList))
 
 
 # ----- Test ----- #
@@ -66,6 +69,18 @@ def main():
     p1.addCard(5)
     p1.addCard(7)
     p1.addCard(9)
+
+    print(p1.getCards())
+
+    print(p1.getSortedList())
+
+    p1.removeChip()
+
+    print(p1.getChips())
+
+    print(p1.getScore())
+
+    print(p1)
 
 main()
 # ---- End Test ----#
