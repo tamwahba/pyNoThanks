@@ -1,4 +1,4 @@
-FIRST = 1
+FIRST = 0
 
 
 class Player:
@@ -57,30 +57,30 @@ class Player:
 
 
 # ----- Test ----- #
-def main():
-    p1 = Player("p1")
-    p1.addCard(20)
-    p1.addCard(31)
-    p1.addCard(33)
-    p1.addCard(35)
-    p1.addCard(12)
-    p1.addCard(11)
-    p1.addCard(10)
-    p1.addCard(5)
-    p1.addCard(7)
-    p1.addCard(9)
+# def main():
+#     p1 = Player("p1")
+#     p1.addCard(20)
+#     p1.addCard(31)
+#     p1.addCard(33)
+#     p1.addCard(35)
+#     p1.addCard(12)
+#     p1.addCard(11)
+#     p1.addCard(10)
+#     p1.addCard(5)
+#     p1.addCard(7)
+#     p1.addCard(9)
 
-    print(p1.getCards())
+#     print(p1.getCards())
 
-    print(p1.getSortedList())
+#     print(p1.getSortedList())
 
-    p1.removeChip()
+#     p1.removeChip()
 
-    print(p1.getChips())
+#     print(p1.getChips())
 
-    print(p1.getScore())
+#     print(p1.getScore())
 
-    print(p1)
+#     print(p1)
 
-main()
+# main()
 # ---- End Test ----#

@@ -18,3 +18,8 @@ class MainWindow(object):
     def __init__(self):
         self.__window = Tk()
         self.__window.title("No Thanks")
+
+        self.__window.mainloop()
+
+
+MainWindow()
