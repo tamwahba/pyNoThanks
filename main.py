@@ -18,8 +18,39 @@ class MainWindow(object):
     def __init__(self):
         self.__window = Tk()
         self.__window.title("No Thanks")
+        self.__window.minsize(width=400, height=350)
+
+        self.__currentPage = self.page1()
 
         self.__window.mainloop()
 
+    def page1(self):
+        self.__pageFrame = Frame(self.__window)
+        self.__numPlayerLabel = Label(self.__pageFrame,
+                                      text="Enter number of players")
+
+        self.__numPlayers = IntVar(value=3)
+
+        self.__menuBtn = Menubutton(self.__pageFrame,
+                                    textvariable=self.__numPlayers)
+        self.__menu = Menu(self.__menuBtn, tearoff=0)
+
+        self.__menu.add_radiobutton(label="3", variable=self.__numPlayers,
+                                    value=3, indicatoron=0)
+        self.__menu.add_radiobutton(label="4", variable=self.__numPlayers,
+                                    value=4, indicatoron=0)
+        self.__menu.add_radiobutton(label="5", variable=self.__numPlayers,
+                                    value=5, indicatoron=0)
+        self.__menu.add_radiobutton(label="6", variable=self.__numPlayers,
+                                    value=6, indicatoron=0)
+
+        self.__menuBtn.config(menu=self.__menu)
+
+        self.__numPlayerLabel.pack(side="left")
+        self.__menuBtn.pack(side="left")
+        self.__pageFrame.pack(side="top")
+
+    def page2(self):
+        a=1
 
 MainWindow()
