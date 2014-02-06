@@ -1,12 +1,21 @@
+"""
+Michael Mones
+mmones1@binghamton.edu
+
+Class for a player object, has variables self.__name,
+ self.__cardList, and self.__chips
+"""
+
+# index of first card in cardList
 FIRST = 0
 
 
 class Player:
-    """docstring for  Player"""
+    # constructor
     def __init__(self, playerName):
-        self.__name = playerName  # str
-        self.__cardList = []  # list<int>
-        self.__chips = 11  # int
+        self.__name = playerName
+        self.__cardList = []
+        self.__chips = 11
 
     # -------------------------------
     # Accessors
@@ -17,7 +26,7 @@ class Player:
         return self.__chips
 
     def getName(self):
-        return self.__playerName
+        return self.__name
 
     def getSortedList(self):
         self.__cardList.sort()
@@ -26,15 +35,29 @@ class Player:
     def getScore(self):
         score = 0
         self.__cardList.sort()
-        previousCard = self.__cardList[FIRST]
 
-        for card in self.__cardList:
-            if not (previousCard == card - 1):
-                score += card
-            previousCard = card
+        if self.__cardList:
+            previousCard = self.__cardList[FIRST]
+            for card in self.__cardList:
+                if not (previousCard == card - 1):
+                    score += card
+                previousCard = card
 
         score -= self.__chips
         return score
+
+    def getOrderedCardStr(self):
+        self.__cardList.sort()
+        finalStr = "no cards"
+        if self.__cardList:
+            finalStr = ""
+            previousCard = self.__cardList[FIRST]
+            for card in self.__cardList:
+                if not (previousCard == card - 1):
+                    finalStr += "|"
+                finalStr += str(card) + " "
+                previousCard = card
+        return finalStr
 
     # ----- Mutators ----- #
     # param card (int)
@@ -51,7 +74,6 @@ class Player:
     # -------------------------------
     # 'toString'
     def __str__(self):
-
         return "%s's Cards:\n%s" % (self.__name,
                "\n".join(str(card) for card in self.__cardList))
 
@@ -81,6 +103,8 @@ class Player:
 #     print(p1.getScore())
 
 #     print(p1)
+
+#     print(p1.getOrderedCardStr())
 
 # main()
 # ---- End Test ----#
