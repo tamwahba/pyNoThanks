@@ -3,6 +3,7 @@ class Card:
     def __init__(self, cardValue):
         self.__value = cardValue
         self.__chips = 0
+        self.__pic = ""
 
     # ----------------------------
     # Mutators
